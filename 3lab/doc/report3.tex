@@ -32,7 +32,6 @@
 	В ходе выполнения лабораторной работы утилита будет использована исключительно для отладки использования памяти.
 	
 	\begin{small}
-		\footnotesize
 		\begin{verbatim}
 			==10756== 
 			==10756== HEAP SUMMARY:
@@ -61,7 +60,6 @@
 	Возьмем достаточно большой тест и применим утилиту gprof.
 	
 	\begin{small}
-		\footnotesize
 		\begin{verbatim}
 			Flat profile:
 			
@@ -74,57 +72,60 @@
 			3.12      0.31     0.01                             _init
 			1.56      0.32     0.01    71799     0.00     0.00  bool std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char const*)
 			1.56      0.32     0.01        1     5.00     5.00  ~TAVL()
-			0.00      0.32     0.00   410758     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::GetHeight(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00   410758     0.00     0.00  GetHeight(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
 			0.00      0.32     0.00   360080     0.00     0.00  __gnu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::base() const
 			0.00      0.32     0.00   225446     0.00     0.00  bool std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
 			0.00      0.32     0.00   180040     0.00     0.00  bool __gnu_cxx::operator!=<char*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, __gnu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&)
 			0.00      0.32     0.00   161208     0.00     0.00  __gnu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::operator++()
 			0.00      0.32     0.00   161208     0.00     0.00  __gnu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::operator*() const
 			0.00      0.32     0.00   159871     0.00     0.00  bool std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-			0.00      0.32     0.00   137829     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Max(short, short)
-			0.00      0.32     0.00   137829     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::FixHeight(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00    67550     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::BFactor(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00    64738     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Balance(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00    18832     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::FindTree(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-			0.00      0.32     0.00     6360     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Find(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-			0.00      0.32     0.00     6301     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Insert(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long long const&)
-			0.00      0.32     0.00     6171     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-			0.00      0.32     0.00     6022     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::InsertNode(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*, TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00     3261     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode::~TNode()
-			0.00      0.32     0.00     3124     0.00     0.01  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Serialize(std::basic_ofstream<char, std::char_traits<char> >&)
-			0.00      0.32     0.00     3044     0.00     0.09  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Deserialize(std::basic_ifstream<char, std::char_traits<char> >&)
-			0.00      0.32     0.00     2137     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::LeftRotate(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00     2064     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::RightRotate(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00      263     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::RemoveNode(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-			0.00      0.32     0.00       82     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::Min(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
-			0.00      0.32     0.00       82     0.00     0.00  TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::RemoveMin(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00   137829     0.00     0.00  Max(short, short)
+			0.00      0.32     0.00   137829     0.00     0.00  FixHeight(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00    67550     0.00     0.00  BFactor(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00    64738     0.00     0.00  Balance(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00    18832     0.00     0.00  FindTree(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+			0.00      0.32     0.00     6360     0.00     0.00  Find(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+			0.00      0.32     0.00     6301     0.00     0.00  Insert(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, unsigned long long const&)
+			0.00      0.32     0.00     6171     0.00     0.00  Remove(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+			0.00      0.32     0.00     6022     0.00     0.00  InsertNode(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*, TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00     3261     0.00     0.00  TNode::~TNode()
+			0.00      0.32     0.00     3124     0.00     0.01  Serialize(std::basic_ofstream<char, std::char_traits<char> >&)
+			0.00      0.32     0.00     3044     0.00     0.09  Deserialize(std::basic_ifstream<char, std::char_traits<char> >&)
+			0.00      0.32     0.00     2137     0.00     0.00  LeftRotate(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00     2064     0.00     0.00  RightRotate(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00      263     0.00     0.00  RemoveNode(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+			0.00      0.32     0.00       82     0.00     0.00  Min(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
+			0.00      0.32     0.00       82     0.00     0.00  RemoveMin(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)
 			
 		\end{verbatim}
 	\end{small}
-
+	
 	Как мы видим, большую часть времени ($75\% $) программа проводит в рекурсивной функции DeserializeRecursive. Неудивительно, так как чтение и восстановление дерева - достаточно трудоемкая операция.
 	
+	\newpage
+	
 	Также можно построить графы вызовов при помощи gprof2dot.
-	\begin{figure}[h]
+	\begin{center}
 		\includegraphics[width=\linewidth]{output.png}
-	\end{figure}
+	\end{center}
 
 	\subsection*{gcov}
 	
 	Gcov — свободно распространяемая утилита для исследования покрытия кода. Gcov генерирует точное количество исполнений для каждого оператора в программе и позволяет добавить аннотации к исходному коду. 
 	С помощью утилит lcov и genhtml можно получить html страницу с отчетом покрытия кода.
-	\begin{figure}[h]
+	\begin{center}
 		\includegraphics[width=\linewidth]{gcov1.jpg}
-	\end{figure}
-	\begin{figure}[h]
+	\end{center}
+	\begin{center}
 		\includegraphics[width=\linewidth]{gcov2.jpg}
-	\end{figure}
-	\begin{figure}[h]
+	\end{center}
+	
+	\begin{center}
 		\includegraphics[width=\linewidth]{gcov3.jpg}
-	\end{figure}
-	\begin{figure}[h]
+	\end{center}
+	\begin{center}
 		\includegraphics[width=\linewidth]{gcov4.jpg}
-	\end{figure}
+	\end{center}
 
 	Как мы видим, в реализации avl-дерева покрыто $90.8\%$ кода, в то время как в main.cpp покрыто $97.8\%$ кода. Это объясняется тем, что в avl.hpp присутствует реализация печати дерева, а в main.cpp присутствует вызов этой печати. В тестах печать не использовалась, так как была заложена мной как служебная функция для проверки программы на правильность.
 	

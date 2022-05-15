@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.3)  15 MAY 2022 16:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.3)  15 MAY 2022 16:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -451,7 +451,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-36.
+35.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
@@ -1466,301 +1466,253 @@ pdfTeX warning: pdflatex (file /usr/share/texlive/texmf-var/fonts/map/pdftex/up
 dmap/pdftex.map): fontmap entry for `rtxptmro' already exists, duplicates ignor
 ed
 }]
-Overfull \hbox (191.58348pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 75.00      0.24     0.24     3044     0.08     0.09  Deseria
-lizeRecursive(std::basic_ifstream<char, std::char_traits<char> >&)[] 
+Overfull \hbox (243.19972pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 75.00      0.24     0.24     3044     0.08     0.09  Dese
+rializeRecursive(std::basic_ifstream<char, std::char_traits<char> >&)[] 
  []
 
 
-Overfull \hbox (784.68864pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 12.50      0.28     0.04     3124     0.01     0.01  Seriali
-zeRecursive(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::
-allocator<char> >, unsigned long long>::TNode*, std::basic_ofstream<char, std::
-char_traits<char> >&)[] 
+Overfull \hbox (882.59564pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 12.50      0.28     0.04     3124     0.01     0.01  Seri
+alizeRecursive(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, st
+d::allocator<char> >, unsigned long long>::TNode*, std::basic_ofstream<char, st
+d::char_traits<char> >&)[] 
  []
 
 
-Overfull \hbox (433.02452pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 6.25      0.30     0.02  4624519     0.00     0.00  TNode(st
+Overfull \hbox (503.48479pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 6.25      0.30     0.02  4624519     0.00     0.00  TNode
+(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> 
+> const&, unsigned long long const&)[] 
+ []
+
+
+Overfull \hbox (809.03682pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 1.56      0.32     0.01    71799     0.00     0.00  bool 
+std::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx
+11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, c
+har const*)[] 
+ []
+
+
+Overfull \hbox (526.11827pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   410758     0.00     0.00  GetHe
+ight(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocat
+or<char> >, unsigned long long>::TNode*)[] 
+ []
+
+
+Overfull \hbox (565.72687pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   360080     0.00     0.00  __gnu
+_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_trait
+s<char>, std::allocator<char> > >::base() const[] 
+ []
+
+
+Overfull \hbox (1227.75627pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   225446     0.00     0.00  bool 
+std::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx1
+1::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, st
 d::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > c
-onst&, unsigned long long const&)[] 
+onst&)[] 
  []
 
 
-Overfull \hbox (716.4553pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 1.56      0.32     0.01    71799     0.00     0.00  bool std
-::operator==<char, std::char_traits<char>, std::allocator<char> >(std::__cxx11:
-:basic_string<char, std::char_traits<char>, std::allocator<char> > const&, char
- const*)[] 
+Overfull \hbox (1901.10242pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   180040     0.00     0.00  bool 
+__gnu_cxx::operator!=<char*, std::__cxx11::basic_string<char, std::char_traits<
+char>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<char*, std::__cxx1
+1::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, 
+__gnu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_
+traits<char>, std::allocator<char> > > const&)[] 
  []
 
 
-Overfull \hbox (1015.63225pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   410758     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::GetHeight(TAVL<std::__cxx11::basic_string<char, std::char_t
-raits<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
+Overfull \hbox (565.72687pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   161208     0.00     0.00  __gnu
+_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_trait
+s<char>, std::allocator<char> > >::operator++()[] 
  []
 
 
-Overfull \hbox (490.76042pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   360080     0.00     0.00  __gnu_cx
-x::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<c
-har>, std::allocator<char> > >::base() const[] 
+Overfull \hbox (594.01872pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   161208     0.00     0.00  __gnu
+_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_trait
+s<char>, std::allocator<char> > >::operator*() const[] 
  []
 
 
-Overfull \hbox (1104.86046pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   225446     0.00     0.00  bool std
-::operator><char, std::char_traits<char>, std::allocator<char> >(std::__cxx11::
-basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std::
-__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > cons
-t&)[] 
+Overfull \hbox (1233.41464pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   159871     0.00     0.00  bool 
+std::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx
+11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, s
+td::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > 
+const&)[] 
  []
 
 
-Overfull \hbox (1729.45793pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   180040     0.00     0.00  bool __g
-nu_cxx::operator!=<char*, std::__cxx11::basic_string<char, std::char_traits<cha
-r>, std::allocator<char> > >(__gnu_cxx::__normal_iterator<char*, std::__cxx11::
-basic_string<char, std::char_traits<char>, std::allocator<char> > > const&, __g
-nu_cxx::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_tra
-its<char>, std::allocator<char> > > const&)[] 
+Overfull \hbox (526.11827pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00   137829     0.00     0.00  FixHe
+ight(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocat
+or<char> >, unsigned long long>::TNode*)[] 
  []
 
 
-Overfull \hbox (490.76042pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   161208     0.00     0.00  __gnu_cx
-x::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<c
-har>, std::allocator<char> > >::operator++()[] 
+Overfull \hbox (514.80153pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00    67550     0.00     0.00  BFact
+or(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator
+<char> >, unsigned long long>::TNode*)[] 
  []
 
 
-Overfull \hbox (517.00401pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   161208     0.00     0.00  __gnu_cx
-x::__normal_iterator<char*, std::__cxx11::basic_string<char, std::char_traits<c
-har>, std::allocator<char> > >::operator*() const[] 
+Overfull \hbox (514.80153pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00    64738     0.00     0.00  Balan
+ce(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator
+<char> >, unsigned long long>::TNode*)[] 
  []
 
 
-Overfull \hbox (1110.10918pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   159871     0.00     0.00  bool std
-::operator< <char, std::char_traits<char>, std::allocator<char> >(std::__cxx11:
-:basic_string<char, std::char_traits<char>, std::allocator<char> > const&, std:
-:__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > con
-st&)[] 
+Overfull \hbox (1018.39655pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00    18832     0.00     0.00  FindT
+ree(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocato
+r<char> >, unsigned long long>::TNode*, std::__cxx11::basic_string<char, std::c
+har_traits<char>, std::allocator<char> > const&)[] 
  []
 
 
-Overfull \hbox (454.0194pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   137829     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Max(short, short)[] 
+Overfull \hbox (345.0504pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     6360     0.00     0.00  Find(
+std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >
+ const&)[] 
  []
 
 
-Overfull \hbox (1015.63225pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00   137829     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::FixHeight(TAVL<std::__cxx11::basic_string<char, std::char_t
-raits<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
+Overfull \hbox (509.14316pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     6301     0.00     0.00  Inser
+t(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>
+ > const&, unsigned long long const&)[] 
  []
 
 
-Overfull \hbox (1005.13481pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00    67550     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::BFactor(TAVL<std::__cxx11::basic_string<char, std::char_tra
-its<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
+Overfull \hbox (356.36714pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     6171     0.00     0.00  Remov
+e(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char>
+ > const&)[] 
  []
 
 
-Overfull \hbox (1005.13481pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00    64738     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Balance(TAVL<std::__cxx11::basic_string<char, std::char_tra
-its<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
+Overfull \hbox (1182.4893pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     6022     0.00     0.00  Inser
+tNode(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::alloca
+tor<char> >, unsigned long long>::TNode*, TAVL<std::__cxx11::basic_string<char,
+ std::char_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)[]
+ 
  []
 
 
-Overfull \hbox (1472.27074pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00    18832     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::FindTree(TAVL<std::__cxx11::basic_string<char, std::char_tr
-aits<char>, std::allocator<char> >, unsigned long long>::TNode*, std::__cxx11::
-basic_string<char, std::char_traits<char>, std::allocator<char> > const&)[] 
+Overfull \hbox (175.29927pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     3124     0.00     0.01  Seria
+lize(std::basic_ofstream<char, std::char_traits<char> >&)[] 
  []
 
 
-Overfull \hbox (847.67326pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     6360     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Find(std::__cxx11::basic_string<char, std::char_traits<char
->, std::allocator<char> > const&)[] 
+Overfull \hbox (186.61601pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     3044     0.00     0.09  Deser
+ialize(std::basic_ifstream<char, std::char_traits<char> >&)[] 
  []
 
 
-Overfull \hbox (999.8861pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     6301     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Insert(std::__cxx11::basic_string<char, std::char_traits<ch
-ar>, std::allocator<char> > const&, unsigned long long const&)[] 
+Overfull \hbox (531.77664pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     2137     0.00     0.00  LeftR
+otate(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::alloca
+tor<char> >, unsigned long long>::TNode*)[] 
  []
 
 
-Overfull \hbox (858.1707pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     6171     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Remove(std::__cxx11::basic_string<char, std::char_traits<ch
-ar>, std::allocator<char> > const&)[] 
+Overfull \hbox (537.43501pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00     2064     0.00     0.00  Right
+Rotate(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::alloc
+ator<char> >, unsigned long long>::TNode*)[] 
  []
 
 
-Overfull \hbox (1624.48357pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     6022     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::InsertNode(TAVL<std::__cxx11::basic_string<char, std::char_
-traits<char>, std::allocator<char> >, unsigned long long>::TNode*, TAVL<std::__
-cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, unsig
-ned long long>::TNode*)[] 
+Overfull \hbox (1029.71329pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00      263     0.00     0.00  Remov
+eNode(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::alloca
+tor<char> >, unsigned long long>::TNode*, std::__cxx11::basic_string<char, std:
+:char_traits<char>, std::allocator<char> > const&)[] 
  []
 
 
-Overfull \hbox (443.52196pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     3261     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::TNode::~TNode()[] 
+Overfull \hbox (492.16805pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00       82     0.00     0.00  Min(T
+AVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<cha
+r> >, unsigned long long>::TNode*)[] 
  []
 
 
-Overfull \hbox (690.21172pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     3124     0.00     0.01  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Serialize(std::basic_ofstream<char, std::char_traits<char> 
->&)[] 
- []
-
-
-Overfull \hbox (700.70915pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     3044     0.00     0.09  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Deserialize(std::basic_ifstream<char, std::char_traits<char
-> >&)[] 
- []
-
-
-Overfull \hbox (1020.88097pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     2137     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::LeftRotate(TAVL<std::__cxx11::basic_string<char, std::char_
-traits<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
- []
-
-
-Overfull \hbox (1026.12968pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00     2064     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::RightRotate(TAVL<std::__cxx11::basic_string<char, std::char
-_traits<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
- []
-
-
-Overfull \hbox (1482.76817pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00      263     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::RemoveNode(TAVL<std::__cxx11::basic_string<char, std::char_
-traits<char>, std::allocator<char> >, unsigned long long>::TNode*, std::__cxx11
-::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)[] 
- []
-
-
-Overfull \hbox (984.13994pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00       82     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::Min(TAVL<std::__cxx11::basic_string<char, std::char_traits<
-char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
- []
-
-
-Overfull \hbox (1015.63225pt too wide) in paragraph at lines 102--102
-[]\T2A/cmtt/m/n/10 0.00      0.32     0.00       82     0.00     0.00  TAVL<std
-::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, u
-nsigned long long>::RemoveMin(TAVL<std::__cxx11::basic_string<char, std::char_t
-raits<char>, std::allocator<char> >, unsigned long long>::TNode*)[] 
+Overfull \hbox (526.11827pt too wide) in paragraph at lines 100--100
+[]\T2A/cmtt/m/n/10.95 0.00      0.32     0.00       82     0.00     0.00  Remov
+eMin(TAVL<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocat
+or<char> >, unsigned long long>::TNode*)[] 
  []
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 105.
+(Font)              <12> on input line 103.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 105.
+(Font)              <8> on input line 103.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 105.
-<output.png, id=11, 3321.49013pt x 325.54054pt>
+(Font)              <6> on input line 103.
+[2]
+<output.png, id=15, 3321.49013pt x 325.54054pt>
 File: output.png Graphic file (type png)
 <use output.png>
 Package pdftex.def Info: output.png  used on input line 109.
 (pdftex.def)             Requested size: 469.75502pt x 46.03732pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<gcov1.jpg, id=13, 1918.16624pt x 303.1325pt>
+<gcov1.jpg, id=17, 1918.16624pt x 303.1325pt>
 File: gcov1.jpg Graphic file (type jpg)
 <use gcov1.jpg>
 Package pdftex.def Info: gcov1.jpg  used on input line 117.
 (pdftex.def)             Requested size: 469.75502pt x 74.23341pt.
-<gcov2.jpg, id=14, 1924.18875pt x 298.11375pt>
+<gcov2.jpg, id=18, 1924.18875pt x 298.11375pt>
 File: gcov2.jpg Graphic file (type jpg)
 <use gcov2.jpg>
 Package pdftex.def Info: gcov2.jpg  used on input line 120.
 (pdftex.def)             Requested size: 469.75502pt x 72.77695pt.
-<gcov3.jpg, id=15, 541.02126pt x 306.14375pt>
+<gcov3.jpg, id=19, 541.02126pt x 306.14375pt>
 File: gcov3.jpg Graphic file (type jpg)
 <use gcov3.jpg>
-Package pdftex.def Info: gcov3.jpg  used on input line 123.
+Package pdftex.def Info: gcov3.jpg  used on input line 124.
 (pdftex.def)             Requested size: 469.75502pt x 265.82437pt.
-<gcov4.jpg, id=16, 704.6325pt x 268.00125pt>
+<gcov4.jpg, id=20, 704.6325pt x 268.00125pt>
 File: gcov4.jpg Graphic file (type jpg)
 <use gcov4.jpg>
-Package pdftex.def Info: gcov4.jpg  used on input line 126.
+Package pdftex.def Info: gcov4.jpg  used on input line 127.
 (pdftex.def)             Requested size: 469.75502pt x 178.66841pt.
-[2]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[3 <./output.png> <./gcov1.jpg> <./gcov2.jpg>] [4 <./gcov3.jpg> <./gcov4.jpg>]
-(./report3.aux) ) 
+ [3 <./output.png> <./gcov1.jpg> <./gcov2.jpg> <./gcov3.jpg>] [4 <./gcov4.jpg>]
+ (./report3.aux) ) 
 Here is how much of TeX's memory you used:
- 3092 strings out of 478862
- 42409 string characters out of 5858946
- 379756 words of memory out of 6000000
- 20698 multiletter control sequences out of 15000+600000
- 413108 words of font info for 46 fonts, out of 8000000 for 9000
+ 3090 strings out of 478862
+ 42390 string characters out of 5858946
+ 373272 words of memory out of 6000000
+ 20697 multiletter control sequences out of 15000+600000
+ 412312 words of font info for 45 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 55i,6n,62p,622b,244s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.en
-c}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rep-cmrm.enc}{/usr/share
-/texlive/texmf-dist/fonts/enc/dvips/cm-unicode/cmu-la.enc}
-
-pdfTeX warning: pdflatex: No flags specified for non-embedded font `CMUTypewrit
-er-Regular' (latt1000) (I'm using 34): fix your map entry.
-
-
-pdfTeX warning: pdflatex: font `CMUTypewriter-Regular' is not a standard font; 
-I suppose it is available to your PDF viewer then
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/
-share/texlive/texmf-dist/fonts/type1/public/mlmodern/mlmmi12.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/mlmodern/mlmr12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/cm-super/sfti1200.pfb>
-Output written on report3.pdf (4 pages, 928651 bytes).
+ 55i,5n,62p,622b,243s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.e
+nc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rep-cmrm.enc}{/usr/shar
+e/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}</usr/share/texl
+ive/texmf-dist/fonts/type1/public/mlmodern/mlmmi12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/mlmodern/mlmr12.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/cm-super/sfbx1728.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-s
+uper/sfti1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sf
+tt1095.pfb>
+Output written on report3.pdf (4 pages, 966877 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
- 36 compressed objects within 1 object stream
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
