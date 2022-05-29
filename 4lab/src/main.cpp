@@ -1,71 +1,79 @@
-#include <iostream>
-#include <vector>
-
-
 #include "TWord.hpp"
 
-void Clear(TWord &word) {
-    for (unsigned short i = 0; i < MAX_WORD_SIZE; ++i) {
-        word[i] = '\0';
-    }
+inline void Clear(TWord &word) {
+    word.Hash = 0;
+    word.Size = 0;
 }
 
 int main() {
-    bool textPatternFlag = true;
+    std::ios_base::sync_with_stdio(false);
+    std::cin.tie(nullptr);
+    std::cout.tie(nullptr);
     std::vector<TWord> pattern;
     std::vector<TWord> text;
     int start = 0;
-    char c;
     unsigned short ind = 0;
     TWord current;
     std::vector<int> sp;
-    current.setWordId(0);
-    current.setStringId(0);
-    Clear(current);
-    while ((c = getchar()) != EOF) {
-        if (c == '\n') {
+    std::string buffer;
+    getline(std::cin, buffer);
+    for (auto &c: buffer) {
+        if (c == ' ' or c == '\t') {
             if (ind > 0) {
-                textPatternFlag ? pattern.emplace_back(current) : text.emplace_back(current);
-                if (!textPatternFlag and text.size() > 2 * pattern.size()) {
-                    Search(pattern, text, sp, start);
-                    text.erase(text.begin(), text.begin() + (int) pattern.size());
-                    text.reserve(2 * pattern.size());
-                }
-                Clear(current);
-                ind = 0;
+                pattern.emplace_back(current);
             }
-            current.setStringId(current.getStringId() + 1);
-            if (textPatternFlag) {
-                textPatternFlag = false;
-                if (pattern.empty()) {
-                    return 0;
-                }
-                current.setStringId(1);
-                sp = SPFunction(pattern);
-            }
-            current.setWordId(1);
-        } else if (c == '\t' or c == ' ') {
-            if (ind > 0) {
-                textPatternFlag ? pattern.emplace_back(current) : text.emplace_back(current);
-                if (!textPatternFlag and text.size() > 2 * pattern.size()) {
-                    Search(pattern, text, sp, start);
-                    text.erase(text.begin(), text.begin() + (int) pattern.size());
-                    text.reserve(2 * pattern.size());
-                }
-                ind = 0;
-                current.setWordId(current.getWordId() + 1);
-                Clear(current);
-            }
+            Clear(current);
+            ind = 0;
         } else {
-            if ('a' <= c and 'z' >= c) {
-                c = toupper(c);
-            }
-            current[ind] = c;
+            current.Word[ind] = toupper(c);
+            current.Hash = current.Hash * ALPHABET_SIZE + current.Word[ind] - 'A';
             ++ind;
         }
     }
     if (ind > 0) {
-        textPatternFlag ? pattern.emplace_back(current) : text.emplace_back(current);
+        pattern.emplace_back(current);
+        Clear(current);
+        ind = 0;
+    }
+    sp = SPFunction(pattern);
+    text.reserve(2 * pattern.size());
+    current.WordID = 1;
+    current.StringID = 1;
+    while (getline(std::cin, buffer)) {
+        for (auto &c: buffer) {
+            if (c == '\t' or c == ' ') {
+                if (ind > 0) {
+                    text.emplace_back(current);
+                    if (text.size() > 2 * pattern.size()) {
+                        Search(pattern, text, sp, start);
+                        text.erase(text.begin(), text.begin() + (int) pattern.size());
+                        text.reserve(2 * text.size());
+                    }
+                    ind = 0;
+                    ++current.WordID;
+                    Clear(current);
+                }
+            } else {
+                current.Word[ind] = toupper(c);
+                current.Hash = current.Hash * ALPHABET_SIZE + current.Word[ind] - 'A';
+                ++ind;
+            }
+        }
+        if (ind > 0) {
+            text.emplace_back(current);
+            if (text.size() > 2 * pattern.size()) {
+                Search(pattern, text, sp, start);
+                text.erase(text.begin(), text.begin() + (int) pattern.size());
+                text.reserve(2 * text.size());
+            }
+        }
+        current.WordID = 1;
+        ++current.StringID;
+        Clear(current);
+        ind = 0;
+    }
+    if (ind > 0) {
+        text.emplace_back(current);
     }
     Search(pattern, text, sp, start);
     return 0;

@@ -4,35 +4,21 @@
 #include <iostream>
 #include <vector>
 
-const unsigned short MAX_WORD_SIZE = 16;
+const unsigned short MAX_WORD_SIZE = 17;
+const unsigned short ALPHABET_SIZE = 26;
 
-class TWord {
-public:
-    TWord() = default;
-
-    TWord(const std::string &str, const unsigned int &word, const unsigned int &string);
-
-    char &operator[](unsigned short &i);
-
-    char operator[](unsigned short &i) const;
+struct TWord {
+    TWord();
 
     friend bool operator==(const TWord &lhs, const TWord &rhs);
 
     friend bool operator!=(const TWord &lhs, const TWord &rhs);
 
-    void setStringId(unsigned int stringId);
-
-    void setWordId(unsigned int wordId);
-
-    unsigned int getStringId() const;
-
-    unsigned int getWordId() const;
-
-    friend std::ostream &operator<<(std::ostream &os, const TWord &word);
-private:
     char Word[MAX_WORD_SIZE];
     unsigned int StringID;
     unsigned int WordID;
+    unsigned int Size;
+    unsigned int Hash;
 };
 
 std::vector<int> ZFunction(const std::vector<TWord> &string);
