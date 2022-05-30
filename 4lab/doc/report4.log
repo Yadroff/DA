@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.3)  29 MAY 2022 20:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2022.3.3)  31 MAY 2022 00:47
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2004,11 +2004,11 @@ report4/default.pygstyle)...executed.
 
 (./_minted-report4/default.pygstyle)
 runsystem(pygmentize -l C++ -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-report4/07DD2DFC9D0D843BAD9BF4DFCDBF2647046BB98DC77DAF2167E2F053EF9179BB.py
+ted-report4/C5B2558B4E722712D248AA4B31FC7934046BB98DC77DAF2167E2F053EF9179BB.py
 gtex ../src/TWord.hpp)...executed.
 
 
-(./_minted-report4/07DD2DFC9D0D843BAD9BF4DFCDBF2647046BB98DC77DAF2167E2F053EF91
+(./_minted-report4/C5B2558B4E722712D248AA4B31FC7934046BB98DC77DAF2167E2F053EF91
 79BB.pygtex
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
 1.
@@ -2018,54 +2018,59 @@ File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 LaTeX Font Info:    Font shape `T2A/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `T2A/cmtt/m/n' tried instead on input line 8.
 
-[2])
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 30.
+)
 runsystem(pygmentize -l C++ -f latex -P commandprefix=PYG -F tokenmerge -o _min
-ted-report4/91F777AFFEBB7BB8B0B4B2508DFDA4A9216CC2D880BDA333A3B0923AE450E8F7.py
+ted-report4/91FCD85BC13C341F3DE6DD871E3543D2216CC2D880BDA333A3B0923AE450E8F7.py
 gtex ../src/TWord.cpp)...executed.
 
 
-(./_minted-report4/91F777AFFEBB7BB8B0B4B2508DFDA4A9216CC2D880BDA333A3B0923AE450
-E8F7.pygtex [3])
+(./_minted-report4/91FCD85BC13C341F3DE6DD871E3543D2216CC2D880BDA333A3B0923AE450
+E8F7.pygtex [3] [4])
 runsystem(pygmentize -l C++ -f latex -P commandprefix=PYG -F tokenmerge -o _min
 ted-report4/E48499E9DE95AD55B7D1BE71339426D99F73D8AF283B56861A2E20D4D132EBEC.py
 gtex ../src/main.cpp)...executed.
 
 
 (./_minted-report4/E48499E9DE95AD55B7D1BE71339426D99F73D8AF283B56861A2E20D4D132
-EBEC.pygtex [4]
+EBEC.pygtex [5]
 LaTeX Font Info:    Trying to load font information for TS1+cmtt on input line 
 22.
  (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-[5]) [6] [7] [8] (./report4.aux) ) 
+[6]) [7] [8] [9] (./report4.aux) ) 
 Here is how much of TeX's memory you used:
- 8028 strings out of 478862
- 135242 string characters out of 5858946
- 681610 words of memory out of 6000000
- 25514 multiletter control sequences out of 15000+600000
- 412110 words of font info for 46 fonts, out of 8000000 for 9000
+ 8025 strings out of 478862
+ 134574 string characters out of 5858946
+ 686610 words of memory out of 6000000
+ 25512 multiletter control sequences out of 15000+600000
+ 413224 words of font info for 48 fonts, out of 8000000 for 9000
  1137 hyphenation exceptions out of 8191
- 74i,5n,77p,842b,379s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 74i,8n,77p,869b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvip
-s/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-s
-uper/cm-super-t2a.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rep-
-cmrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/
-share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}</usr/share/texlive/t
+s/cm-super/cm-super-ts1.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/l
+m-mathsy.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/
+usr/share/texlive/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t2a.enc}{/usr/sh
+are/texlive/texmf-dist/fonts/enc/dvips/lm/lm-rep-cmrm.enc}</usr/share/texlive/t
 exmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/lm/lmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mlmo
 dern/mlmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mlmodern/mlm
-mi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/cm-super/sfit1200.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/cm-super/sfti1200.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/cm-super/sftt1200.pfb>
-Output written on report4.pdf (8 pages, 216135 bytes).
+mi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/mlmodern/mlmmi8.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/mlmodern/mlmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/mlmodern/mlmsy6.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/cm-super/sfbx1728.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/cm-super/sfit1200.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/cm-super/sfrm1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/cm-super/sfti1200.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/cm-
+super/sftt1200.pfb>
+Output written on report4.pdf (9 pages, 229891 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 60 compressed objects within 1 object stream
+ 93 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
