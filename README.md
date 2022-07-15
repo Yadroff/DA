@@ -6,6 +6,10 @@
 [1 ЛР.][1lab] Сортировка массива за линейное время. Тип сортировки: поразрядная. Ключ: номер телефона. Значение: строка фиксированной длины.
 
 [2 ЛР.][2lab] Сбалнсированные деревья. Вариант: AVL-дерево.
+[3ЛР.][3lab] Исследования качества программ.
+[4ЛР.][4lab] Поиск подстроки в строке. Вариант алгоритма: КМП. Вариант алфавита: слова не более 16 знаков латинского алфавита.
 
 [1lab]: https://github.com/Yadroff/DA/tree/master/1lab
 [2lab]: https://github.com/Yadroff/DA/tree/master/2lab
+[3lab]: https://github.com/Yadroff/DA/tree/master/3lab
+[4lab]: https://github.com/Yadroff/DA/tree/master/4lab
