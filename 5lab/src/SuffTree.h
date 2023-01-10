@@ -10,90 +10,52 @@
 /*!
  * Класс суффиксного дерева. Конструируется из строки.
  */
-class TSuffixTree
-{
+class TSuffixTree {
 public:
-	explicit TSuffixTree(const std::string &s);
+    explicit TSuffixTree(std::string s);
 
-	std::string
-	lexMinString(const size_t &n);
+    std::string
+    lexMinString();
 
-	~TSuffixTree() = default;
+    ~TSuffixTree() = default;
+
 private:
-	/*!
-	 * структура ребра суффиксного дерева.
-	 */
-	struct TNode
-	{
-		int left; ///< номер первого символа в вершине
-		std::shared_ptr<int> right; ///< указатель на последний символ в вершине
-		std::map<char, std::shared_ptr<TNode> > children; ///< дети
-		std::shared_ptr<TNode> suffixLink; ///< суффиксная ссылка
-		int id; ///< номер суффикса
+    /*!
+     * структура ребра суффиксного дерева.
+     */
+    struct Node {
+        Node *suffix_link;
+        int start;
+        int *end;
+        std::map<char, Node *> children;
+        bool is_leaf;
 
-		/*!
-		 * Конструктор внутренней вершины: номер суффикса равен -1
-		 * @param start - левая граница
-		 * @param end  - указатель на правую границу
-		 * @param link - суффиксная ссылка (указатель на другую вершину)
-		 */
-		TNode(const int &start, std::shared_ptr<int> end, std::shared_ptr<TNode> link) : TNode(start,
-																							   std::move(end),
-																							   std::move(link),
-																							   -1) {}
-		/*!
-		 * Конструктор листа
-		 * @param start - левая граница
-		 * @param end - указатель на правую границу
-		 * @param link - суффиксная ссылка (указатель на другую вершину)
-		 * @param num - номер суффикса
-		 */
-		TNode(const int &start, std::shared_ptr<int> end, std::shared_ptr<TNode> link, const int &num)
-			: left(start), right(std::move(end)), suffixLink(std::move(link)), id(num) {}
+        Node(int start, int *end, bool is_leaf) {
+            this->start = start;
+            this->end = end;
+            suffix_link = nullptr;
+            this->is_leaf = is_leaf;
+        }
 
-		/*!
-		 * Функция подсчета листьев у вершины
-		 * @param vec - вектор с номерами индексов листьев
-		 */
-		void
-		countLeaves(std::vector<int> &vec)
-		{
-			for (auto [ch, child] : children)
-			{
-				child->countLeaves(vec);
-			}
-			if (this->id != -1)
-			{
-				vec.push_back(id);
-			}
-		}
+        ~Node() {
+            for (auto &it: children) {
+                delete (it.second);
+            }
+        }
+    };
 
-		/*!
-		 * Расчет длины строки, содержащейся в вершине
-		 * @return длину подстроки, расположенную в вершине
-		 */
-		int
-		length()
-		{
-			return *right - left + 1;
-		}
-	};
+    void
+    insert(const int &pos);
 
-	void
-	insert(const int &pos);
-
-//	std::string
-//	lexMinString(const size_t &n, const std::shared_ptr<TNode>& node);
-
-	std::string text; ///< непосредственно строка
-
-	std::shared_ptr<TNode> root; ///< корень
-	std::shared_ptr<TNode> lastCreatedNode; ///< последняя созданная внутренняя вершина
-	std::shared_ptr<TNode> activeNode; ///< вершина, с которой начнется расширение на следующей фазе
-	int activeEdge; ///< индекс символа, задающий движение из текущей вершины
-	int activeLength; ///< на сколько символом идем в направлении activeEdge
-	int suffixCount; ///< сколько суффиксов осталось создать
-	std::shared_ptr<int> leafEnd; ///< глобальная переменная, отвечающая за правую границу листьев
-	const char SENTINEL = std::max('z', 'Z') + 1;
+    Node *root;
+    Node *active_node;
+    Node *last_created_node;
+    int active_edge;
+    int active_length;
+    int suffixes_to_add;
+    std::string text;
+    int global_end;
+    static const int DEFAULT_VALUE = -1;
 };
+
 #endif //SUFF_TREE_SUFFTREE_H

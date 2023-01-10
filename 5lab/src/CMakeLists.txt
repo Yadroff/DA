@@ -3,4 +3,5 @@ project(SUFF_TREE)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(src main.cpp SuffTree.cpp SuffTree.h)
+add_executable(solution main.cpp SuffTree.cpp SuffTree.h)
+add_executable(naieve naieve.cpp)

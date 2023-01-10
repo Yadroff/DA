@@ -1,0 +1,22 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef INC\PYGZus{}6LAB\PYGZus{}FOURIER\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define INC\PYGZus{}6LAB\PYGZus{}FOURIER\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}vector\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}complex\PYGZgt{}}
+
+\PYG{c+cp}{\PYGZsh{}define all(v) v.begin(), v.end()}
+
+\PYG{k}{typedef}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{complex}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{double}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{n}{complex}\PYG{p}{;}
+
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{Fourier}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n}{fft}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{n}{complex}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{invert}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k+kt}{void}\PYG{+w}{ }\PYG{n+nf}{multiply}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{a}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{int}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{b}\PYG{p}{,}
+\PYG{+w}{                         }\PYG{n}{std}\PYG{o}{::}\PYG{n}{vector}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{unsigned}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{+w}{ }\PYG{k+kt}{long}\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{res}\PYG{p}{);}
+\PYG{p}{\PYGZcb{};}
+
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{//INC\PYGZus{}6LAB\PYGZus{}FOURIER\PYGZus{}H}
+\end{Verbatim}

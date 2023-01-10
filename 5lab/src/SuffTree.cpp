@@ -1,37 +1,43 @@
 #include "SuffTree.h"
 
+#include <utility>
+
 /*!
  * Конструктор суффиксного дерева для строки s
  * @param s - исходная строка
  */
-TSuffixTree::TSuffixTree(const std::string &s) :
-	text(s), activeEdge(-1), activeLength(0), suffixCount(0), leafEnd(std::make_shared<int>(-1)), lastCreatedNode(nullptr)
-{
-	text += SENTINEL;
-	root = std::make_shared<TNode>(-1, std::make_shared<int>(-1), nullptr);
-	activeNode = root;
-	for (int i = 0; i < text.size(); ++i)
-	{
-		insert(i);
-	}
+TSuffixTree::TSuffixTree(std::string s) :
+        text(std::move(s)) {
+    root = new Node(DEFAULT_VALUE, new int(DEFAULT_VALUE), false);
+    active_node = root;
+    global_end = DEFAULT_VALUE;
+    active_edge = DEFAULT_VALUE; //activeEdge is represented as input string character index
+    active_length = 0; //this tells how many characters we need to walk down for find symbol that needed
+    suffixes_to_add = 0;
+    for (int i = 0; i < text.size(); ++i) {
+        insert(i);
+    }
 }
+
 std::string
-TSuffixTree::lexMinString(const size_t &n)
-{
-	int remainder = static_cast<int>(n);
-	std::string ans;
-	auto node = root->children.begin()->second;
-	while (ans.size() != n){
-		int len = node->length();
-		if (len > remainder){
-			ans += text.substr(node->left, remainder);
-		} else{
-			ans += text.substr(node->left, len);
-			remainder -= len;
-			node = node->children.begin()->second;
-		}
-	}
-	return ans;
+TSuffixTree::lexMinString() {
+    std::string result_string;
+    size_t length = (text.size() - 1) / 2;
+    Node *next = root;
+    while (result_string.size() < length) {
+        auto it = next->children.begin();
+        if (it->first == '$') {
+            ++it;
+        }
+        next = it->second;
+        for (int i = next->start; i <= *(next->end); ++i) {
+            result_string += text[i];
+            if (result_string.size() == length) {
+                break;
+            }
+        }
+    }
+    return result_string;
 }
 
 /*!
@@ -39,105 +45,66 @@ TSuffixTree::lexMinString(const size_t &n)
  * @param pos - позиция начала суффикса (0-индексация)
  */
 void
-TSuffixTree::insert(const int &pos)
-{
-	// установить lastCreatedInternalNode = null перед началом каждой фазы
-	lastCreatedNode = nullptr;
-
-	// глобальный end для листьев
-	// инкремент leafEnd воплощает правило 1, прием 3: наращивание листьев
-	++(*leafEnd);
-
-	// сколько суффиксов осталось создать
-	suffixCount++;
-
-	while (suffixCount > 0)
-	{
-		// если activeLength равна 0, тогда ищем текущий символ из корня
-		if (activeLength == 0)
-			activeEdge = pos; // индекс текущего символа в тексте определяет дугу, по которой будем двигаться
-
-		// ищем текущий символ в начале исходящих из activeNode дуг
-		auto find = activeNode->children.find(text[activeEdge]);
-		if (find == activeNode->children.end())
-		{
-			// если не нашли, то добавляем лист
-			activeNode->children.emplace(text[activeEdge],
-										 std::make_shared<TNode>(pos,
-																 leafEnd, root,
-																 pos - suffixCount + 1));
-
-			// и коль скоро создали новую внутр. вершину, установим на нее суффиксную ссылку последней созданной внутренней вершины
-			if (lastCreatedNode != nullptr)
-			{
-				lastCreatedNode->suffixLink = activeNode;
-				lastCreatedNode = nullptr;
-			}
-		}
-		else
-		{
-			// а если-таки есть дуга из activeNode, начинающаяся текущим символом, пойдем по ней спускаться
-			auto next = find->second;
-			int edgeLength = next->length();
-			// спускаемся по дугам
-			if (activeLength >= edgeLength)
-			{
-				activeEdge += edgeLength;
-				activeLength -= edgeLength;
-				activeNode = next;
-				continue;
-				// таким образом мы будем спускаться, покуда не станет activeLength < edgeLength
-			}
-			// правило 3: если текущий символ есть на дуге,
-			// т.е. суффикс уже есть в дереве, то просто увеличим activeLength
-			// как бы "шагнем вперед" по дуге
-			if (text[next->left + activeLength] == text[pos])
-			{
-				// если lastCreatedInternalNode != null
-				// это означает, что 2-е правило было применено ранее (создание новой вн. вершины)
-				// установим суффиксную ссылку в activeNode
-				if (lastCreatedNode != nullptr and activeNode != root)
-				{
-					lastCreatedNode->suffixLink = activeNode;
-				}
-				++activeLength;
-				break;
-			}
-			// сюда попали, если текущего символа нет на дуге
-			// создадим новую внутреннюю вершинку
-			auto
-				split = std::make_shared<TNode>(next->left, std::make_shared<int>(next->left + activeLength - 1), root);
-			activeNode->children[text[activeEdge]] = split;
-			// у "следующей" вершинки изменим, очевидно, начало, ибо мы ее "обрубили"
-			next->left += activeLength;
-			// подвесим новую листовую вершинку
-			split->children.emplace(text[pos],
-									std::make_shared<TNode>(pos,
-															leafEnd,
-															root,
-															pos - suffixCount + 1));
-			// подвесим отрубленную вершину
-			split->children.emplace(text[next->left], next);
-			// и не забудем про установку ссылок при создании новой внутренней вершины
-			if (lastCreatedNode != nullptr)
-			{
-				lastCreatedNode->suffixLink = split;
-			}
-			lastCreatedNode = split;
-		}
-		--suffixCount;
-		// если activeNode == root, тогда согласно правилу 2, мы декр. activeLength и инкр. activeEdge
-		// это, можно сказать, альтернатива суфф. ссылке в случае, когда activeNode == root
-		if (activeNode == root && activeLength > 0)
-		{
-			activeLength--;
-			activeEdge++;
-		}
-		else if (activeNode != root) // если же activeNode != root, то радостно скачем по имеющейся суффиксной ссылке
-		{
-			activeNode = activeNode->suffixLink;
-		}
-	}
+TSuffixTree::insert(const int &text_position) {
+    last_created_node = nullptr; /*indicating there is no internal node waiting for it's suffix link reset in current phase*/
+    ++suffixes_to_add; //indicating that a new suffix ready to be added in tree
+    ++global_end; //
+    while (suffixes_to_add > 0) {
+        //If activeLength is ZERO, set activeEdge to the current character
+        if (active_length == 0) {
+            active_edge = text_position;
+        }
+        // A new leaf edge gets created
+        if (!active_node->children[text[active_edge]]) {
+            active_node->children[text[active_edge]] = new Node(text_position, &global_end, true);
+            if (last_created_node != nullptr) {
+                last_created_node->suffix_link = active_node;
+                last_created_node = nullptr;
+            }
+        } else {
+            // Get the next node at the end of edge starting with activeEdge
+            Node *next_node = active_node->children[text[active_edge]];
+            int edge_length = *(next_node->end) - next_node->start + 1;
+            //tricks
+            if (active_length >= edge_length) {
+                active_edge += edge_length;
+                active_length -= edge_length;
+                active_node = next_node;
+                continue;
+            }
+            //(current character being processed is already on the edge
+            if (text[next_node->start + active_length] == text[text_position]) {
+                //If a newly created node waiting for it's suffix link to be set, then set suffix link of that waiting node to current active node
+                if (last_created_node != nullptr) {
+                    last_created_node->suffix_link = active_node;
+                    last_created_node = nullptr;
+                }
+                ++active_length;
+                break;
+            }
+            //new leaf edge and a new internal node get created - if there is no way, create a new nodes
+            Node *to_add = new Node(next_node->start, new int(next_node->start + active_length - 1), false);
+            active_node->children[text[active_edge]] = to_add;
+            next_node->start += active_length;
+            std::pair<char, Node *> first = std::make_pair(text[text_position],
+                                                           new Node(text_position, &global_end, true));
+            std::pair<char, Node *> second = std::make_pair(text[next_node->start], next_node);
+            to_add->children.insert(first);
+            to_add->children.insert(second);
+            //suffixLink of lastNewNode points to current newly created internal node
+            if (last_created_node != nullptr) {
+                last_created_node->suffix_link = to_add;
+            }
+            last_created_node = to_add;
+        }
+        --suffixes_to_add; //decrement remaining suffixes because we finished inserting
+        if (active_node == root && active_length > 0) {
+            ++active_edge;
+            --active_length;
+        } else if (active_node != root) {
+            active_node = active_node->suffix_link;
+        }
+    }
 }
 
 //std::string

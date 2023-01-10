@@ -1,0 +1,125 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZdq{}SuffTree.h\PYGZdq{}}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}utility\PYGZgt{}}
+
+\PYG{c+cm}{/*!}
+\PYG{c+cm}{ * Конструктор суффиксного дерева для строки s}
+\PYG{c+cm}{ * @param s \PYGZhy{} исходная строка}
+\PYG{c+cm}{ */}
+\PYG{n}{TSuffixTree}\PYG{o}{::}\PYG{n}{TSuffixTree}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{:}
+\PYG{+w}{        }\PYG{n}{text}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{move}\PYG{p}{(}\PYG{n}{s}\PYG{p}{))}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{root}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Node}\PYG{p}{(}\PYG{n}{DEFAULT\PYGZus{}VALUE}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{(}\PYG{n}{DEFAULT\PYGZus{}VALUE}\PYG{p}{),}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{);}
+\PYG{+w}{    }\PYG{n}{active\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{global\PYGZus{}end}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DEFAULT\PYGZus{}VALUE}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{active\PYGZus{}edge}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{DEFAULT\PYGZus{}VALUE}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//activeEdge is represented as input string character index}
+\PYG{+w}{    }\PYG{n}{active\PYGZus{}length}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//this tells how many characters we need to walk down for find symbol that needed}
+\PYG{+w}{    }\PYG{n}{suffixes\PYGZus{}to\PYGZus{}add}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{text}\PYG{p}{.}\PYG{n}{size}\PYG{p}{();}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{insert}\PYG{p}{(}\PYG{n}{i}\PYG{p}{);}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{std}\PYG{o}{::}\PYG{n}{string}
+\PYG{n}{TSuffixTree}\PYG{o}{::}\PYG{n}{lexMinString}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{::}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{result\PYGZus{}string}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{size\PYGZus{}t}\PYG{+w}{ }\PYG{n}{length}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{text}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{/}\PYG{+w}{ }\PYG{l+m+mi}{2}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{result\PYGZus{}string}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{\PYGZlt{}}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{k}{auto}\PYG{+w}{ }\PYG{n}{it}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{next}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{.}\PYG{n}{begin}\PYG{p}{();}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{it}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{first}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+s+sc}{\PYGZsq{}\PYGZdl{}\PYGZsq{}}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{o}{++}\PYG{n}{it}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{n}{next}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{it}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{second}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{next}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{p}{;}\PYG{+w}{ }\PYG{n}{i}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{(}\PYG{n}{next}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{end}\PYG{p}{);}\PYG{+w}{ }\PYG{o}{++}\PYG{n}{i}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{result\PYGZus{}string}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{text}\PYG{p}{[}\PYG{n}{i}\PYG{p}{];}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{result\PYGZus{}string}\PYG{p}{.}\PYG{n}{size}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{length}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{k}{return}\PYG{+w}{ }\PYG{n}{result\PYGZus{}string}\PYG{p}{;}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+cm}{/*!}
+\PYG{c+cm}{ * Функция вставки суффикса, начинающегося в позиции pos}
+\PYG{c+cm}{ * @param pos \PYGZhy{} позиция начала суффикса (0\PYGZhy{}индексация)}
+\PYG{c+cm}{ */}
+\PYG{k+kt}{void}
+\PYG{n}{TSuffixTree}\PYG{o}{::}\PYG{n}{insert}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{text\PYGZus{}position}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{    }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{;}\PYG{+w}{ }\PYG{c+cm}{/*indicating there is no internal node waiting for it\PYGZsq{}s suffix link reset in current phase*/}
+\PYG{+w}{    }\PYG{o}{++}\PYG{n}{suffixes\PYGZus{}to\PYGZus{}add}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//indicating that a new suffix ready to be added in tree}
+\PYG{+w}{    }\PYG{o}{++}\PYG{n}{global\PYGZus{}end}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//}
+\PYG{+w}{    }\PYG{k}{while}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{suffixes\PYGZus{}to\PYGZus{}add}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{c+c1}{//If activeLength is ZERO, set activeEdge to the current character}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{active\PYGZus{}length}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{active\PYGZus{}edge}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{text\PYGZus{}position}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{c+c1}{// A new leaf edge gets created}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{o}{!}\PYG{n}{active\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{[}\PYG{n}{text}\PYG{p}{[}\PYG{n}{active\PYGZus{}edge}\PYG{p}{]])}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{active\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{[}\PYG{n}{text}\PYG{p}{[}\PYG{n}{active\PYGZus{}edge}\PYG{p}{]]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Node}\PYG{p}{(}\PYG{n}{text\PYGZus{}position}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{global\PYGZus{}end}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{);}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix\PYGZus{}link}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{active\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{c+c1}{// Get the next node at the end of edge starting with activeEdge}
+\PYG{+w}{            }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{next\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{active\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{[}\PYG{n}{text}\PYG{p}{[}\PYG{n}{active\PYGZus{}edge}\PYG{p}{]];}
+\PYG{+w}{            }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{edge\PYGZus{}length}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{o}{*}\PYG{p}{(}\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{end}\PYG{p}{)}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{;}
+\PYG{+w}{            }\PYG{c+c1}{//tricks}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{active\PYGZus{}length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}=}\PYG{+w}{ }\PYG{n}{edge\PYGZus{}length}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{active\PYGZus{}edge}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{edge\PYGZus{}length}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{active\PYGZus{}length}\PYG{+w}{ }\PYG{o}{\PYGZhy{}=}\PYG{+w}{ }\PYG{n}{edge\PYGZus{}length}\PYG{p}{;}
+\PYG{+w}{                }\PYG{n}{active\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{next\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{                }\PYG{k}{continue}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{c+c1}{//(current character being processed is already on the edge}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{text}\PYG{p}{[}\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{active\PYGZus{}length}\PYG{p}{]}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{text}\PYG{p}{[}\PYG{n}{text\PYGZus{}position}\PYG{p}{])}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{c+c1}{//If a newly created node waiting for it\PYGZsq{}s suffix link to be set, then set suffix link of that waiting node to current active node}
+\PYG{+w}{                }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                    }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix\PYGZus{}link}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{active\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{                    }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{;}
+\PYG{+w}{                }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{                }\PYG{o}{++}\PYG{n}{active\PYGZus{}length}\PYG{p}{;}
+\PYG{+w}{                }\PYG{k}{break}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{c+c1}{//new leaf edge and a new internal node get created \PYGZhy{} if there is no way, create a new nodes}
+\PYG{+w}{            }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{to\PYGZus{}add}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Node}\PYG{p}{(}\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{p}{,}\PYG{+w}{ }\PYG{k}{new}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{p}{(}\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{+w}{ }\PYG{o}{+}\PYG{+w}{ }\PYG{n}{active\PYGZus{}length}\PYG{+w}{ }\PYG{o}{\PYGZhy{}}\PYG{+w}{ }\PYG{l+m+mi}{1}\PYG{p}{),}\PYG{+w}{ }\PYG{n+nb}{false}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{active\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{[}\PYG{n}{text}\PYG{p}{[}\PYG{n}{active\PYGZus{}edge}\PYG{p}{]]}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}add}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{+w}{ }\PYG{o}{+=}\PYG{+w}{ }\PYG{n}{active\PYGZus{}length}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{char}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{first}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{text}\PYG{p}{[}\PYG{n}{text\PYGZus{}position}\PYG{p}{],}
+\PYG{+w}{                                                           }\PYG{k}{new}\PYG{+w}{ }\PYG{n}{Node}\PYG{p}{(}\PYG{n}{text\PYGZus{}position}\PYG{p}{,}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{global\PYGZus{}end}\PYG{p}{,}\PYG{+w}{ }\PYG{n+nb}{true}\PYG{p}{));}
+\PYG{+w}{            }\PYG{n}{std}\PYG{o}{::}\PYG{n}{pair}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{char}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{second}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{std}\PYG{o}{::}\PYG{n}{make\PYGZus{}pair}\PYG{p}{(}\PYG{n}{text}\PYG{p}{[}\PYG{n}{next\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{p}{],}\PYG{+w}{ }\PYG{n}{next\PYGZus{}node}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{to\PYGZus{}add}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{first}\PYG{p}{);}
+\PYG{+w}{            }\PYG{n}{to\PYGZus{}add}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{children}\PYG{p}{.}\PYG{n}{insert}\PYG{p}{(}\PYG{n}{second}\PYG{p}{);}
+\PYG{+w}{            }\PYG{c+c1}{//suffixLink of lastNewNode points to current newly created internal node}
+\PYG{+w}{            }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix\PYGZus{}link}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}add}\PYG{p}{;}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{            }\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{to\PYGZus{}add}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{suffixes\PYGZus{}to\PYGZus{}add}\PYG{p}{;}\PYG{+w}{ }\PYG{c+c1}{//decrement remaining suffixes because we finished inserting}
+\PYG{+w}{        }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{active\PYGZus{}node}\PYG{+w}{ }\PYG{o}{==}\PYG{+w}{ }\PYG{n}{root}\PYG{+w}{ }\PYG{o}{\PYGZam{}\PYGZam{}}\PYG{+w}{ }\PYG{n}{active\PYGZus{}length}\PYG{+w}{ }\PYG{o}{\PYGZgt{}}\PYG{+w}{ }\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{o}{++}\PYG{n}{active\PYGZus{}edge}\PYG{p}{;}
+\PYG{+w}{            }\PYG{o}{\PYGZhy{}\PYGZhy{}}\PYG{n}{active\PYGZus{}length}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}\PYG{+w}{ }\PYG{k}{else}\PYG{+w}{ }\PYG{k}{if}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{active\PYGZus{}node}\PYG{+w}{ }\PYG{o}{!=}\PYG{+w}{ }\PYG{n}{root}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{n}{active\PYGZus{}node}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{active\PYGZus{}node}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{suffix\PYGZus{}link}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{//std::string}
+\PYG{c+c1}{//TSuffixTree::lexMinString(const size\PYGZus{}t \PYGZam{}n, const std::shared\PYGZus{}ptr\PYGZlt{}TNode\PYGZgt{}\PYGZam{} node)}
+\PYG{c+c1}{//\PYGZob{}}
+\PYG{c+c1}{//	// конец рекурсии}
+\PYG{c+c1}{//	if (n == 0)\PYGZob{}}
+\PYG{c+c1}{//		return \PYGZob{}\PYGZcb{};}
+\PYG{c+c1}{//	\PYGZcb{}}
+\PYG{c+c1}{//	int len = node\PYGZhy{}\PYGZgt{}length();}
+\PYG{c+c1}{//	if (len \PYGZgt{} n)\PYGZob{}}
+\PYG{c+c1}{//		return text.substr(node\PYGZhy{}\PYGZgt{}left, n);}
+\PYG{c+c1}{//	\PYGZcb{} else \PYGZob{}}
+\PYG{c+c1}{//		return text.substr(node\PYGZhy{}\PYGZgt{}left, len) + lexMinString(n \PYGZhy{} len, node\PYGZhy{}\PYGZgt{}children.begin()\PYGZhy{}\PYGZgt{}second);}
+\PYG{c+c1}{//	\PYGZcb{}}
+\PYG{c+c1}{//\PYGZcb{}}
+\end{Verbatim}

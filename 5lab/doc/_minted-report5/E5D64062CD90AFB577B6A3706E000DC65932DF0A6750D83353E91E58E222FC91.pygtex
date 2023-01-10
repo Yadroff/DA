@@ -1,0 +1,63 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+cp}{\PYGZsh{}ifndef SUFF\PYGZus{}TREE\PYGZus{}SUFFTREE\PYGZus{}H}
+\PYG{c+cp}{\PYGZsh{}define SUFF\PYGZus{}TREE\PYGZus{}SUFFTREE\PYGZus{}H}
+
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}memory\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}string\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}utility\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}vector\PYGZgt{}}
+\PYG{c+cp}{\PYGZsh{}include}\PYG{+w}{ }\PYG{c+cpf}{\PYGZlt{}map\PYGZgt{}}
+
+\PYG{c+cm}{/*!}
+\PYG{c+cm}{ * Класс суффиксного дерева. Конструируется из строки.}
+\PYG{c+cm}{ */}
+\PYG{k}{class}\PYG{+w}{ }\PYG{n+nc}{TSuffixTree}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{k}{public}\PYG{o}{:}
+\PYG{+w}{    }\PYG{k}{explicit}\PYG{+w}{ }\PYG{n}{TSuffixTree}\PYG{p}{(}\PYG{n}{std}\PYG{o}{::}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{s}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{::}\PYG{n}{string}
+\PYG{+w}{    }\PYG{n+nf}{lexMinString}\PYG{p}{();}
+
+\PYG{+w}{    }\PYG{o}{\PYGZti{}}\PYG{n}{TSuffixTree}\PYG{p}{()}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{default}\PYG{p}{;}
+
+\PYG{k}{private}\PYG{o}{:}
+\PYG{+w}{    }\PYG{c+cm}{/*!}
+\PYG{c+cm}{     * структура ребра суффиксного дерева.}
+\PYG{c+cm}{     */}
+\PYG{+w}{    }\PYG{k}{struct}\PYG{+w}{ }\PYG{n+nc}{Node}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{        }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{suffix\PYGZus{}link}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{start}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{end}\PYG{p}{;}
+\PYG{+w}{        }\PYG{n}{std}\PYG{o}{::}\PYG{n}{map}\PYG{o}{\PYGZlt{}}\PYG{k+kt}{char}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*\PYGZgt{}}\PYG{+w}{ }\PYG{n}{children}\PYG{p}{;}
+\PYG{+w}{        }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{is\PYGZus{}leaf}\PYG{p}{;}
+
+\PYG{+w}{        }\PYG{n}{Node}\PYG{p}{(}\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{start}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{end}\PYG{p}{,}\PYG{+w}{ }\PYG{k+kt}{bool}\PYG{+w}{ }\PYG{n}{is\PYGZus{}leaf}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{start}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{start}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{end}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{end}\PYG{p}{;}
+\PYG{+w}{            }\PYG{n}{suffix\PYGZus{}link}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{k}{nullptr}\PYG{p}{;}
+\PYG{+w}{            }\PYG{k}{this}\PYG{o}{\PYGZhy{}\PYGZgt{}}\PYG{n}{is\PYGZus{}leaf}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{n}{is\PYGZus{}leaf}\PYG{p}{;}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+
+\PYG{+w}{        }\PYG{o}{\PYGZti{}}\PYG{n}{Node}\PYG{p}{()}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{            }\PYG{k}{for}\PYG{+w}{ }\PYG{p}{(}\PYG{k}{auto}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{it}\PYG{o}{:}\PYG{+w}{ }\PYG{n}{children}\PYG{p}{)}\PYG{+w}{ }\PYG{p}{\PYGZob{}}
+\PYG{+w}{                }\PYG{k}{delete}\PYG{+w}{ }\PYG{p}{(}\PYG{n}{it}\PYG{p}{.}\PYG{n}{second}\PYG{p}{);}
+\PYG{+w}{            }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{        }\PYG{p}{\PYGZcb{}}
+\PYG{+w}{    }\PYG{p}{\PYGZcb{};}
+
+\PYG{+w}{    }\PYG{k+kt}{void}
+\PYG{+w}{    }\PYG{n+nf}{insert}\PYG{p}{(}\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{o}{\PYGZam{}}\PYG{n}{pos}\PYG{p}{);}
+
+\PYG{+w}{    }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{root}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{active\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{Node}\PYG{+w}{ }\PYG{o}{*}\PYG{n}{last\PYGZus{}created\PYGZus{}node}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{active\PYGZus{}edge}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{active\PYGZus{}length}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{suffixes\PYGZus{}to\PYGZus{}add}\PYG{p}{;}
+\PYG{+w}{    }\PYG{n}{std}\PYG{o}{::}\PYG{n}{string}\PYG{+w}{ }\PYG{n}{text}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{global\PYGZus{}end}\PYG{p}{;}
+\PYG{+w}{    }\PYG{k}{static}\PYG{+w}{ }\PYG{k}{const}\PYG{+w}{ }\PYG{k+kt}{int}\PYG{+w}{ }\PYG{n}{DEFAULT\PYGZus{}VALUE}\PYG{+w}{ }\PYG{o}{=}\PYG{+w}{ }\PYG{l+m+mi}{\PYGZhy{}1}\PYG{p}{;}
+\PYG{p}{\PYGZcb{};}
+
+\PYG{c+cp}{\PYGZsh{}endif }\PYG{c+c1}{//SUFF\PYGZus{}TREE\PYGZus{}SUFFTREE\PYGZus{}H}
+\end{Verbatim}
